@@ -7,7 +7,7 @@
 @import "tailwindcss";
 
 #typing-text {
-	border-right: 2px solid #000;
+	border-right: 2px solid #fff;
 	overflow: hidden;
 	display: inline;
 	position: relative;
@@ -22,7 +22,7 @@
 	top: 0;
 	height: 100%;
 	width: 2px;
-	background-color: #000;
+	background-color: #fff;
 	animation: blink-caret 0.75s step-end infinite;
 }
 

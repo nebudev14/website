@@ -1,7 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import "../styles/global.css";
 ---
@@ -11,14 +9,14 @@ import "../styles/global.css";
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body >
 		<!-- <Header /> -->
 		<main class="w-full px-32 py-20 h-screen">
 			<div class="flex items-center justify-between">
 				<div class="flex-grow max-w-3xl ">
-					<h1 class="text-7xl">hi, i'm warren!</h1>
+					<h1 class="md:text-7xl text-4xl">hi, i'm warren!</h1>
 					<p>
-						i'm a <span id="typing-text"></span> from nyc. i currently attend wpi, where i study <strong>computer science</strong> and <strong>robotics engineering</strong>.
+						i'm a <span id="typing-text"></span> from nyc. i currently attend <strong>wpi</strong>, where i study <strong>computer science</strong> and <strong>robotics engineering</strong>.
 					</p>
 					<script>
 
@@ -71,14 +69,14 @@ import "../styles/global.css";
 							setTimeout(typeText, newTextDelay);
 						});
 					</script>
-					<p >
+					<p>
 						my interests lie in the intersection of <strong>optimization</strong>, <strong>control theory</strong>, and <strong>machine learning</strong>. i aim to research methods of controlling various <strong>dynamical systems</strong>, and work towards a world where we live with <a class=" underline" href="https://www.youtube.com/watch?v=-e1_QhJ1EhQ" target="_blank" rel="noopener noreferrer">cool-looking robots</a>.
 					</p>
 					<p>
 						nowdays, i fly around the country to compete in <strong>hackathons</strong> (10x winner🏆) and work at <strong>spacex</strong> as a flight reliability software engineering intern.
 					</p>
 				</div>
-				<div class="mt-8">
+				<div class="mt-8 hidden md:block">
 					<img src="/warren-pfp.png" alt="Warren's profile picture" class="w-52 h-52 rounded-full" />
 				</div>
 			</div>
@@ -120,6 +118,9 @@ import "../styles/global.css";
 					</svg>
 				</a>
 			</div>
+			<p class="mt-8 md:text-lg text-sm ">
+				want to work with me? contact me at <code>wyun2006 [at] gmail [dot] com</code>
+			</p>
 		</main>
 			
 
