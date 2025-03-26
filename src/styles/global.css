@@ -6,6 +6,31 @@
 
 @import "tailwindcss";
 
+#typing-text {
+	border-right: 2px solid #000;
+	overflow: hidden;
+	display: inline;
+	position: relative;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+#typing-text::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 2px;
+	background-color: #000;
+	animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+	from, to { background-color: transparent }
+	50% { background-color: #000 }
+}
+
 :root {
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
