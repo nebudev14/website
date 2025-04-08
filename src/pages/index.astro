@@ -11,8 +11,7 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<!-- <Header /> -->
-		<main class="w-full px-32 py-20">
-			<!-- Add theme toggle button -->
+		<main class="w-full px-24 py-16">
 			<button
 				id="theme-toggle"
 				class="fixed top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors duration-200"
@@ -39,7 +38,7 @@ import "../styles/global.css";
 				</svg>
 			</button>
 			<div class="flex items-center justify-between">
-				<div class="flex-grow max-w-3xl">
+				<div class="flex-grow max-w-3xl text-xl">
 					<h1 class="md:text-7xl text-4xl text-zinc-50">
 						hi, i'm warren!
 					</h1>
@@ -64,16 +63,16 @@ import "../styles/global.css";
 						>.
 					</p>
 					<p>
-						nowdays, i fly around the country to compete in <strong
+						nowadays, i fly around the country to compete in <strong
 							>hackathons</strong
 						> (10x winner🏆), work on autonomous drones at wpi's <a
 							class="underline"
 							href="https://acp-lab.github.io/acplab-web/"
 							target="_blank"
-							rel="noopener noreferrer"><strong>acp lab</strong></a
-						>, and am a flight reliability software engineering intern at <strong
-							>spacex</strong
-						>.
+							rel="noopener noreferrer"
+							><strong>acp lab</strong></a
+						>, and am a flight reliability software engineering
+						intern at <strong>spacex</strong>.
 					</p>
 				</div>
 				<div class="mt-8 hidden md:block">
@@ -84,7 +83,7 @@ import "../styles/global.css";
 					/>
 				</div>
 			</div>
-			<div class="flex items-center justify-between">
+			<div class="flex items-center justify-between text-xl">
 				<div class="flex-grow max-w-5xl">
 					<h1 class="text-4xl">previously i...</h1>
 					<ul class="list-disc list-inside">
@@ -187,9 +186,17 @@ import "../styles/global.css";
 				</a>
 			</div>
 			<div class="mt-8">
-			<h1 class="text-sm">enjoy some cool quadrotor simulations using an MPC controller i wrote</h1>
-			<iframe class="mb-4" src="https://app.rerun.io/version/0.22.0/index.html?url=https://www.wyun.sh/mpc.rrd" width="100%" height="800px" ></iframe>
+				<h1 class="text-sm">
+					enjoy some cool quadrotor simulations using an MPC
+					controller i wrote
+				</h1>
+				<iframe
+					class="mb-4"
+					src="https://app.rerun.io/version/0.22.0/index.html?url=https://www.wyun.sh/mpc.rrd"
+					width="100%"
+					height="690px"></iframe>
 			</div>
+		
 			<p class="mt-8 md:text-lg text-sm text-zinc-300" id="contact-text">
 				want to work with me? contact me at <code
 					class="bg-zinc-800 px-2 py-1 rounded border border-zinc-700"
@@ -223,7 +230,11 @@ import "../styles/global.css";
 			html.classList.add("bg-zinc-50", "text-zinc-900");
 			sunIcon?.classList.add("hidden");
 			moonIcon?.classList.remove("hidden");
-			contactText?.classList.remove("text-zinc-300", "border", "border-zinc-700");
+			contactText?.classList.remove(
+				"text-zinc-300",
+				"border",
+				"border-zinc-700",
+			);
 		} else {
 			html.classList.add("bg-zinc-900", "text-zinc-100");
 			html.classList.remove("bg-zinc-50", "text-zinc-900");
