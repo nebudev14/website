@@ -5,16 +5,168 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en" class="h-screen bg-zinc-900 text-zinc-100">
+<html lang="en" class="h-screen" id="html-root">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			:root {
+				--gruvbox-dark-bg: #282828;
+				--gruvbox-dark-bg1: #3c3836;
+				--gruvbox-dark-bg2: #504945;
+				--gruvbox-dark-fg: #ebdbb2;
+				--gruvbox-dark-fg1: #fbf1c7;
+				--gruvbox-dark-fg2: #d5c4a1;
+				--gruvbox-dark-fg3: #bdae93;
+				--gruvbox-dark-fg4: #a89984;
+
+				--gruvbox-light-bg: #fbf1c7;
+				--gruvbox-light-bg1: #ebdbb2;
+				--gruvbox-light-bg2: #d5c4a1;
+				--gruvbox-light-fg: #3c3836;
+				--gruvbox-light-fg1: #282828;
+				--gruvbox-light-fg2: #504945;
+				--gruvbox-light-fg3: #665c54;
+				--gruvbox-light-fg4: #7c6f64;
+			}
+
+			html.dark {
+				background-color: var(--gruvbox-dark-bg);
+				color: var(--gruvbox-dark-fg);
+			}
+
+			html.light {
+				background-color: var(--gruvbox-light-bg);
+				color: var(--gruvbox-light-fg);
+			}
+
+			.gruvbox-dark-bg {
+				background-color: var(--gruvbox-dark-bg);
+			}
+			.gruvbox-dark-bg1 {
+				background-color: var(--gruvbox-dark-bg1);
+			}
+			.gruvbox-dark-bg2 {
+				background-color: var(--gruvbox-dark-bg2);
+			}
+			.gruvbox-dark-fg {
+				color: var(--gruvbox-dark-fg);
+			}
+			.gruvbox-dark-fg1 {
+				color: var(--gruvbox-dark-fg1);
+			}
+			.gruvbox-dark-fg2 {
+				color: var(--gruvbox-dark-fg2);
+			}
+			.gruvbox-dark-fg3 {
+				color: var(--gruvbox-dark-fg3);
+			}
+			.gruvbox-dark-fg4 {
+				color: var(--gruvbox-dark-fg4);
+			}
+
+			.gruvbox-light-bg {
+				background-color: var(--gruvbox-light-bg);
+			}
+			.gruvbox-light-bg1 {
+				background-color: var(--gruvbox-light-bg1);
+			}
+			.gruvbox-light-bg2 {
+				background-color: var(--gruvbox-light-bg2);
+			}
+			.gruvbox-light-fg {
+				color: var(--gruvbox-light-fg);
+			}
+			.gruvbox-light-fg1 {
+				color: var(--gruvbox-light-fg1);
+			}
+			.gruvbox-light-fg2 {
+				color: var(--gruvbox-light-fg2);
+			}
+			.gruvbox-light-fg3 {
+				color: var(--gruvbox-light-fg3);
+			}
+			.gruvbox-light-fg4 {
+				color: var(--gruvbox-light-fg4);
+			}
+
+			html.dark .theme-bg {
+				background-color: var(--gruvbox-dark-bg1);
+			}
+			html.dark .theme-bg:hover {
+				background-color: var(--gruvbox-dark-bg2);
+			}
+			html.light .theme-bg {
+				background-color: var(--gruvbox-light-bg1);
+			}
+			html.light .theme-bg:hover {
+				background-color: var(--gruvbox-light-bg2);
+			}
+
+			html.dark .theme-text-primary {
+				color: var(--gruvbox-dark-fg1);
+			}
+			html.light .theme-text-primary {
+				color: var(--gruvbox-light-fg1);
+			}
+
+			html.dark .theme-text-secondary {
+				color: var(--gruvbox-dark-fg2);
+			}
+			html.light .theme-text-secondary {
+				color: var(--gruvbox-light-fg2);
+			}
+
+			html.dark .theme-text-muted {
+				color: var(--gruvbox-dark-fg4);
+			}
+			html.light .theme-text-muted {
+				color: var(--gruvbox-light-fg4);
+			}
+
+			html.dark .theme-text-muted:hover {
+				color: var(--gruvbox-dark-fg2);
+			}
+			html.light .theme-text-muted:hover {
+				color: var(--gruvbox-light-fg2);
+			}
+
+			html.dark .theme-code-bg {
+				background-color: var(--gruvbox-dark-bg1);
+				border-color: var(--gruvbox-dark-bg2);
+			}
+			html.light .theme-code-bg {
+				background-color: var(--gruvbox-light-bg1);
+				border-color: var(--gruvbox-light-bg2);
+			}
+
+			html.dark .theme-contact-text {
+				color: var(--gruvbox-dark-fg3);
+			}
+			html.light .theme-contact-text {
+				color: var(--gruvbox-light-fg3);
+			}
+
+			html.dark strong {
+				color: #83a598;
+			}
+			html.light strong {
+				color: #076678;
+			}
+
+			html.dark .gruvbox-yellow {
+				color: #f6c657;
+			}
+			html.light .gruvbox-yellow {
+				color: #c18401;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- <Header /> -->
 		<main class="w-full px-32 py-16">
 			<button
 				id="theme-toggle"
-				class="fixed top-4 right-4 p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors duration-200"
+				class="fixed top-4 right-4 p-2 rounded-lg theme-bg transition-colors duration-200"
 			>
 				<svg
 					id="sun-icon"
@@ -29,7 +181,7 @@ import "../styles/global.css";
 				<svg
 					id="moon-icon"
 					class="w-6 h-6"
-					fill="#fff"
+					fill="currentColor"
 					viewBox="0 0 20 20"
 				>
 					<path
@@ -39,51 +191,59 @@ import "../styles/global.css";
 			</button>
 			<div class="flex items-center justify-between">
 				<div class="flex-grow max-w-3xl text-xl">
-					<h1 class="md:text-7xl text-4xl text-zinc-50">
+					<h1 class="md:text-7xl text-4xl theme-text-primary">
 						hi, i'm warren!
 					</h1>
-          <p>
-            i'm a <span id="typing-text"></span> from nyc. i'm 19 and i currently study computer science at <strong>georgia tech</strong>.</p>
+					<p>
+						i'm a <span id="typing-text"></span> from nyc. i'm 19 and
+						i currently study computer science at <strong
+							class="gruvbox-yellow">georgia tech</strong
+						>.
+					</p>
 
-          <p>right now, i'm super down bad for the intersection of <strong>autonomous vehicles</strong> & <strong>artificial intelligence</strong>. i'm also becoming increasingly obsessed with <strong>nix</strong> and other stupid linux stuff.</p>
-          { /* <p>
-						nowadays, i fly around the country to compete in <strong
-							>hackathons</strong
-						> (10x winner🏆), and work on electric cars at gtech's <a
-							class="underline"
-							href="https://hytechracing.gatech.edu/"
-							target="_blank"
-							rel="noopener noreferrer"
-            ><strong>fsae team</strong></a>.
-          </p> */ }
+					<p>
+						i tend to hop from one interest to another super frequently, but at the moment, i'm super down bad for the intersection of <strong
+							>autonomous vehicles</strong
+						> & <strong>artificial intelligence</strong>. i'm also increasingly
+						becoming obsessed with <strong>nix</strong>
+						and other stupid linux stuff.
+					</p>
 				</div>
-				<div class="mt-8 hidden md:block">
+				<div class="mt-8 hidden md:block flex flex-col items-center">
 					<img
 						src="/header.png"
 						alt="Warren's profile picture"
-            class="w-64 h-64 rounded-full"
-          />
+						class="w-64 h-64 rounded-full"
+					/>
+					<div class="mt-2 flex justify-center items-center gap-3 text-sm theme-text-secondary w-full">
+						<span style="display: inline-block;">spacex's falcon 9 rocket</span>
+					</div>
 				</div>
 			</div>
 			<div class="flex items-center justify-between text-xl">
 				<div class="flex-grow max-w-5xl">
-					<h1 class="text-4xl">previously i...</h1>
+					<h1 class="text-4xl" style="color: #8ec07c;">
+						previously i...
+					</h1>
 					<ul class="list-disc list-inside">
 						<li>
 							led a <a
 								href="https://www.youtube.com/watch?v=Q2C3_wkqsVw"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="underline">competitive robotics team</a
+								class="underline"
+								style="color: #8ec07c;"
+								>competitive robotics team</a
 							> in high school
 						</li>
-            <li>
-              spent a year flying all over the country to win
+						<li>
+							spent a year flying all over the country to win
 							<a
 								href="https://devpost.com/software/talktuahbank"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="underline">hackathons</a
+								class="underline"
+								style="color: #8ec07c;">hackathons</a
 							> (10x winner🏆)
 						</li>
 						<li>
@@ -91,7 +251,8 @@ import "../styles/global.css";
 								href="https://bwsi.mit.edu/"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="underline">mit</a
+								class="underline"
+								style="color: #8ec07c;">mit</a
 							>
 						</li>
 						<li>
@@ -99,7 +260,8 @@ import "../styles/global.css";
 								href="https://www.spacex.com/"
 								target="_blank"
 								rel="noopener noreferrer"
-								class="underline">spacex</a
+								class="underline"
+								style="color: #8ec07c;">spacex</a
 							>
 						</li>
 					</ul>
@@ -110,7 +272,7 @@ import "../styles/global.css";
 					href="https://www.linkedin.com/in/warren-yun/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-zinc-400 hover:text-zinc-200 transition-colors duration-200"
+					class="theme-text-muted transition-colors duration-200"
 				>
 					<svg
 						class="w-8 h-8"
@@ -127,7 +289,7 @@ import "../styles/global.css";
 					href="https://github.com/nebudev14"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-zinc-400 hover:text-zinc-200 transition-colors duration-200"
+					class="theme-text-muted transition-colors duration-200"
 				>
 					<svg
 						class="w-8 h-8"
@@ -145,7 +307,7 @@ import "../styles/global.css";
 					href="https://x.com/nebudev14"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-zinc-400 hover:text-zinc-200 transition-colors duration-200"
+					class="theme-text-muted transition-colors duration-200"
 				>
 					<svg
 						class="w-8 h-8"
@@ -162,7 +324,7 @@ import "../styles/global.css";
 					href="https://devpost.com/NebuDev14"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-zinc-400 hover:text-zinc-200 transition-colors duration-200"
+					class="theme-text-muted transition-colors duration-200"
 				>
 					<svg
 						class="w-8 h-8"
@@ -188,9 +350,12 @@ import "../styles/global.css";
 					height="700px"></iframe>
 			</div>
 
-			<p class="mt-8 md:text-lg text-sm text-zinc-300" id="contact-text">
+			<p
+				class="mt-8 md:text-lg text-sm theme-contact-text"
+				id="contact-text"
+			>
 				want to work with me? contact me at <code
-					class="bg-zinc-800 px-2 py-1 rounded border border-zinc-700"
+					class="theme-code-bg px-2 py-1 rounded border"
 					>wyun2006 [at] gmail [dot] com</code
 				>
 			</p>
@@ -203,8 +368,6 @@ import "../styles/global.css";
 	const themeToggle = document.getElementById("theme-toggle");
 	const sunIcon = document.getElementById("sun-icon");
 	const moonIcon = document.getElementById("moon-icon");
-	const contactText = document.getElementById("contact-text");
-	console.log(sunIcon);
 	const getPreferredTheme = () => {
 		const savedTheme = localStorage.getItem("theme");
 		if (savedTheme) {
@@ -217,21 +380,15 @@ import "../styles/global.css";
 
 	const setTheme = (theme: string) => {
 		if (theme === "light") {
-			html.classList.remove("bg-zinc-900", "text-zinc-100");
-			html.classList.add("bg-zinc-50", "text-zinc-900");
+			html.classList.remove("dark");
+			html.classList.add("light");
 			sunIcon?.classList.add("hidden");
 			moonIcon?.classList.remove("hidden");
-			contactText?.classList.remove(
-				"text-zinc-300",
-				"border",
-				"border-zinc-700",
-			);
 		} else {
-			html.classList.add("bg-zinc-900", "text-zinc-100");
-			html.classList.remove("bg-zinc-50", "text-zinc-900");
+			html.classList.remove("light");
+			html.classList.add("dark");
 			sunIcon?.classList.remove("hidden");
 			moonIcon?.classList.add("hidden");
-			contactText?.classList.add("text-zinc-300");
 		}
 		localStorage.setItem("theme", theme);
 	};
@@ -253,8 +410,8 @@ import "../styles/global.css";
 		});
 
 	const texts = [
-    "full-stack software engineer",
-    "silly robotics guy",
+		"software engineer",
+		"silly robot enjoyer",
 		"hackathon tryhard",
 		"redbull addict",
 	];
